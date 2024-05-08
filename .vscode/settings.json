@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "CSC 378 Lab4 Tanks.sln"
+    "dotnet.defaultSolution": "CSC_378_Lab4_Tanks.sln"
 }
