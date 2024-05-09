@@ -8,6 +8,7 @@ public class TurretController : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     // [SerializeField] private float fireRate;
+    [SerializeField] private AudioSource fireSound; // Reference to the AudioSource component
 
     private Vector2 lookDirection;
 
@@ -24,5 +25,9 @@ public class TurretController : MonoBehaviour
     private void OnFire()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        if (fireSound != null)
+        {
+            fireSound.Play(); // Play the assigned audio clip
+        }
     }
 }

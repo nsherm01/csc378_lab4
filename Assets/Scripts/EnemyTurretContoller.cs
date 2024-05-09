@@ -11,6 +11,7 @@ public class EnemyTurretController : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     public float shootInterval = 3f;    // Time interval between shots
+    [SerializeField] private AudioSource fireSound; // Reference to the AudioSource component
 
     void Start()
     {
@@ -33,6 +34,11 @@ public class EnemyTurretController : MonoBehaviour
     {
         while (true)
         {
+            if (fireSound != null)
+            {
+                fireSound.Play(); // Play the assigned audio clip
+            }
+
             yield return new WaitForSeconds(shootInterval); // Wait for shootInterval seconds
 
             // Check if playerTransform is valid before shooting
