@@ -7,6 +7,7 @@ public class TurretController : MonoBehaviour
     // Gun Variables
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
+    // [SerializeField] private float fireRate;
 
     private Vector2 lookDirection;
 
@@ -18,5 +19,10 @@ public class TurretController : MonoBehaviour
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         // Rotate the turret
         transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    private void OnFire()
+    {
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }
