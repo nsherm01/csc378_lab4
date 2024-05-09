@@ -218,9 +218,10 @@ GameObject:
   - component: {fileID: 49158960}
   - component: {fileID: 49158959}
   - component: {fileID: 49158961}
+  - component: {fileID: 49158962}
   m_Layer: 0
   m_Name: AI Tank
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,6 +283,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 3
   frequency: 0.8
+--- !u!61 &49158962
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49158958}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.62501097, y: 1.2066188}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.250022, y: 1.4340354}
+  m_EdgeRadius: 0
 --- !u!1 &100050821
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +985,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9.813012
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1961,7 +2007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   additionalAngle: 90
-  bulletPrefab: {fileID: 6715830004586004863, guid: 24d887b7e4a98495aa92e1266f6dce6e, type: 3}
+  bulletPrefab: {fileID: 6715830004586004863, guid: 8c2918bbe4bd6421797078c2dcf5b3e0, type: 3}
   firePoint: {fileID: 1115530659}
   shootInterval: 3
   fireSound: {fileID: 1128625986}

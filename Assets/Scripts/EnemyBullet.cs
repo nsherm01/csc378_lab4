@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float lifeTime;
+    [SerializeField] private AudioSource hitSound; // Reference to the AudioSource component
     private Rigidbody2D rb;
 
     private void Start()
@@ -25,6 +26,10 @@ public class Bullet : MonoBehaviour
     //     if (collision.CompareTag("Enemy"))
     //     {
     //         Destroy(gameObject);
+    //         if (hitSound != null)
+    //         {
+    //             hitSound.Play(); // Play the assigned audio clip
+    //         }
     //     }
     // }
 }
