@@ -12,6 +12,12 @@ public class TurretController : MonoBehaviour
 
     private Vector2 lookDirection;
 
+    // face varaibles
+    public GameObject leftEyebrow; // First object to show
+    public GameObject rightEyebrow; // Second object to show
+    [SerializeField] private float eyebrowRevealTime = 0.5f; // Time to reveal the objects
+
+
     private void Update()
     {
         // Get the mouse position
@@ -29,5 +35,24 @@ public class TurretController : MonoBehaviour
         {
             fireSound.Play(); // Play the assigned audio clip
         }
+        StartCoroutine(RevealEyebrows());
+    }
+
+    private IEnumerator RevealEyebrows()
+    {
+        // Show the first object
+        leftEyebrow.SetActive(true);
+
+        // Show the second object
+        rightEyebrow.SetActive(true);
+
+        // Wait for half a second
+        yield return new WaitForSeconds(eyebrowRevealTime);
+
+        // Hide the first object
+        leftEyebrow.SetActive(false);
+
+        // Hide the second object
+        rightEyebrow.SetActive(false);
     }
 }
