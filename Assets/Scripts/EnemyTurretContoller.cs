@@ -34,11 +34,6 @@ public class EnemyTurretController : MonoBehaviour
     {
         while (true)
         {
-            if (fireSound != null)
-            {
-                fireSound.Play(); // Play the assigned audio clip
-            }
-
             yield return new WaitForSeconds(shootInterval); // Wait for shootInterval seconds
 
             // Check if playerTransform is valid before shooting
@@ -47,6 +42,10 @@ public class EnemyTurretController : MonoBehaviour
                 // Instantiate bullet at firePoint position and rotation
                 GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 // Add code here to set any additional properties of the bullet (e.g., damage, speed)
+                if (fireSound != null)
+                {
+                    fireSound.Play(); // Play the assigned audio clip
+                }
             }
         }
     }

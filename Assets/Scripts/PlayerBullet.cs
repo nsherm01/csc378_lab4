@@ -21,15 +21,15 @@ public class PlayerBullet : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-            if (hitSound != null)
-            {
-                hitSound.Play(); // Play the assigned audio clip
-            }
-        }
-    }
+    // public void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (collision.CompareTag("Enemy"))
+    //     {
+    //         Destroy(gameObject);
+    //         if (hitSound != null)
+    //         {
+    //             hitSound.Play(); // Play the assigned audio clip
+    //         }
+    //     }
+    // }
 }
