@@ -10,12 +10,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     [SerializeField] private AudioSource hitSound; // Reference to the AudioSource component
     public HealthManager healthManager; // reference to the HealthManager
-    [SerializeField] private Transform leftPupil;
-    [SerializeField] private Transform rightPupil;
-    private Vector3 leftPupilRestingPos;
-    private Vector3 rightPupilRestingPos;
-    [SerializeField] private float maxTranslationDistance = 0.1f;
-    [SerializeField] private float maxRadius = 1.5f;
+    // [SerializeField] private Transform leftPupil;
+    // [SerializeField] private Transform rightPupil;
+    // private Vector3 leftPupilRestingPos;
+    // private Vector3 rightPupilRestingPos;
+    // [SerializeField] private float maxTranslationDistance = 0.1f;
+    // [SerializeField] private float maxRadius = 1.5f;
     
 
     private void Awake()
@@ -23,17 +23,17 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
-    {
-        // Store the resting positions of the pupils
-        leftPupilRestingPos = leftPupil.position;
-        rightPupilRestingPos = rightPupil.position;
-    }
+    // private void Start()
+    // {
+    //     // Store the resting positions of the pupils
+    //     leftPupilRestingPos = leftPupil.position;
+    //     rightPupilRestingPos = rightPupil.position;
+    // }
 
     private void FixedUpdate()
     {
         rb.velocity = moveInput * speed;
-        UpdatePupils();
+        // UpdatePupils();
     }
 
     private void OnMove(InputValue value)
@@ -41,26 +41,26 @@ public class PlayerController : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
-    private void UpdatePupils()
-    {
-        if (Camera.main != null)
-        {
-            // Get mouse position in world coordinates
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+    // private void UpdatePupils()
+    // {
+    //     if (Camera.main != null)
+    //     {
+    //         // Get mouse position in world coordinates
+    //         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-            // Calculate target positions for the pupils based on mouse position and player movement
-            Vector3 leftTargetPos = leftPupilRestingPos + Vector3.ClampMagnitude(mousePosition - leftPupilRestingPos, maxTranslationDistance);
-            Vector3 rightTargetPos = rightPupilRestingPos + Vector3.ClampMagnitude(mousePosition - rightPupilRestingPos, maxTranslationDistance);
+    //         // Calculate direction from pupils to mouse position
+    //         Vector3 leftDir = mousePosition - leftPupil.position;
+    //         Vector3 rightDir = mousePosition - rightPupil.position;
 
-            // Limit the target positions to stay within the maxRadius from initial state
-            leftTargetPos = leftPupilRestingPos + Vector3.ClampMagnitude(leftTargetPos - leftPupilRestingPos, maxRadius);
-            rightTargetPos = rightPupilRestingPos + Vector3.ClampMagnitude(rightTargetPos - rightPupilRestingPos, maxRadius);
+    //         // Calculate rotation to look at mouse position
+    //         Quaternion leftTargetRotation = Quaternion.LookRotation(Vector3.forward, leftDir);
+    //         Quaternion rightTargetRotation = Quaternion.LookRotation(Vector3.forward, rightDir);
 
-            // Update pupils' positions
-            leftPupil.position = leftTargetPos;
-            rightPupil.position = rightTargetPos;
-        }
-    }
+    //         // Smoothly rotate pupils towards the mouse position
+    //         leftPupil.rotation = Quaternion.Slerp(leftPupil.rotation, leftTargetRotation, Time.deltaTime * 2f);
+    //         rightPupil.rotation = Quaternion.Slerp(rightPupil.rotation, rightTargetRotation, Time.deltaTime * 2f);
+    //     }
+    // }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
