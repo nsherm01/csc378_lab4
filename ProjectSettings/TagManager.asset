@@ -8,6 +8,7 @@ TagManager:
   - PBullet
   - EBullet
   - Heart
+  - Btn
   layers:
   - Default
   - TransparentFX
