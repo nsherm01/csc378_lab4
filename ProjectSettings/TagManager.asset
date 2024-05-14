@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - PBullet
   - EBullet
+  - Heart
   layers:
   - Default
   - TransparentFX

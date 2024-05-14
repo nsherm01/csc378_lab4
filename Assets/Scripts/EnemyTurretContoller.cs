@@ -12,6 +12,7 @@ public class EnemyTurretController : MonoBehaviour
     [SerializeField] private Transform firePoint;
     public float shootInterval = 3f;    // Time interval between shots
     [SerializeField] private AudioSource fireSound; // Reference to the AudioSource component
+    public float shootingRadius;
 
     void Start()
     {
@@ -36,8 +37,8 @@ public class EnemyTurretController : MonoBehaviour
         {
             yield return new WaitForSeconds(shootInterval); // Wait for shootInterval seconds
 
-            // Check if playerTransform is valid before shooting
-            if (playerTransform != null)
+            // Check if playerTransform is valid and within shooting radius before shooting
+            if (playerTransform != null && Vector3.Distance(transform.position, playerTransform.position) <= shootingRadius)
             {
                 // Instantiate bullet at firePoint position and rotation
                 GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
